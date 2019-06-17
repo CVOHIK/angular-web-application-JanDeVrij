@@ -1,0 +1,37 @@
+<h2>{{title}}</h2>
+
+<div *ngIf="sportParent; else alleSporten" >
+  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+    <agm-marker *ngFor="let locatie of locatieObject.features"
+      [latitude]="locatie.geometry.coordinates[1]" [longitude]="locatie.geometry.coordinates[0]" [visible]="locatie.properties.Sport == sportParent" [label]="{color: '#000000', text: locatie.properties.Sport}">
+      <agm-info-window #infoWindow>
+        <strong>{{locatie.properties.Naam}}</strong>
+        <br />
+        {{locatie.properties.Wijk}}
+        <br /><br />
+        Sport: {{locatie.properties.Sport}}
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
+
+<ng-template #alleSporten>
+  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+    <agm-marker *ngFor="let locatie of locatieObject.features"
+      [latitude]="locatie.geometry.coordinates[1]" [longitude]="locatie.geometry.coordinates[0]" [visible]="true" [label]="{color: '#000000', text: locatie.properties.Sport}">
+      <agm-info-window>
+        <strong>{{locatie.properties.Naam}}</strong>
+        <br />
+        {{locatie.properties.Wijk}}
+        <br /><br />
+        Sport: {{locatie.properties.Sport}}
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</ng-template>
+
+<br/>
+<br/>
+
+<app-zoek-locatie (sportOutput)="selectSportParent($event)"></app-zoek-locatie>
+

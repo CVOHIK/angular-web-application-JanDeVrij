@@ -1,0 +1,17 @@
+<h2>Details vriend(in)</h2>
+
+<div *ngIf="vriend">
+  <h4>Naam: {{ vriend.naam }}</h4>
+  <p>Interesses: {{ vriend.interesses }}</p>
+
+  <button (click)="find()">
+    Zoeken
+  </button>
+
+  |
+
+  <button (click)="invite()">
+    Kom je ook?
+  </button>
+
+</div>

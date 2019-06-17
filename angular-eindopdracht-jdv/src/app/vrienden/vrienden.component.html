@@ -1,0 +1,16 @@
+<h2>Mijn vrienden</h2>
+
+<div *ngFor="let vriend of vrienden; index as vriendId">
+
+  <h4>
+    <a [title]="vriend.naam + ' details'" [routerLink]="['/vrienden', vriendId]">
+      {{ vriend.naam }}
+    </a>
+  </h4>
+
+    <p *ngIf="vriend.interesses">
+    <b>Interesses:</b> {{ vriend.interesses }}
+  </p>
+
+</div>
+

@@ -1,0 +1,31 @@
+
+<label>Filter per sport</label>
+<form #myform="ngForm" (ngSubmit)="selectSportChild(myform)">
+  <select type="select" name="selectsport" ngModel>
+    <option value="" disabled>- Kies een sport -</option>
+    <option value="">- Alle sporten -</option>
+    <option *ngFor="let sport of sportTypes" [ngValue]="sport">{{sport}}</option>
+  </select>
+  <button type="submit">Filter</button>
+</form>
+
+<br/>
+
+<div *ngIf="sportChild">
+  <p>Er zijn <b>{{sportCount}}</b> terrreinen voor {{sportChild}}.</p>
+</div>
+
+<div>
+  <ul *ngFor="let locatie of locatieObject.features">
+    <li *ngIf="locatie.properties.Sport == sportChild && locatie.properties.Naam"><b>{{locatie.properties.Naam}}:</b> {{locatie.properties.Wijk}}</li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+

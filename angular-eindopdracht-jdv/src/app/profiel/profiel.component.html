@@ -1,0 +1,19 @@
+<h2>Mijn interesses</h2>
+
+<div>
+  <ul *ngFor="let interesse of interesses">
+    <li *ngIf="interesse">{{interesse}}</li>
+  </ul>
+</div>
+
+<br/>
+<br/>
+
+<label>Sport toevoegen</label>
+<form #myform="ngForm" (ngSubmit)="voegToe(myform)">
+  <select type="select" name="selectsport" ngModel>
+    <option value="" disabled>- Kies een sport -</option>
+    <option *ngFor="let sport of sportTypes" [ngValue]="sport">{{sport}}</option>
+  </select>
+  <button type="submit">Toevoegen</button>
+</form>
