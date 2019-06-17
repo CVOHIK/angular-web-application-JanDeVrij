@@ -4,7 +4,7 @@
   <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
     <agm-marker *ngFor="let locatie of locatieObject.features"
       [latitude]="locatie.geometry.coordinates[1]" [longitude]="locatie.geometry.coordinates[0]" [visible]="locatie.properties.Sport == sportParent" [label]="{color: '#000000', text: locatie.properties.Sport}">
-      <agm-info-window #infoWindow>
+      <agm-info-window>
         <strong>{{locatie.properties.Naam}}</strong>
         <br />
         {{locatie.properties.Wijk}}
@@ -18,7 +18,7 @@
 <ng-template #alleSporten>
   <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
     <agm-marker *ngFor="let locatie of locatieObject.features"
-      [latitude]="locatie.geometry.coordinates[1]" [longitude]="locatie.geometry.coordinates[0]" [visible]="true" [label]="{color: '#000000', text: locatie.properties.Sport}">
+      [latitude]="locatie.geometry.coordinates[1]" [longitude]="locatie.geometry.coordinates[0]" [visible]="true" [label]="">
       <agm-info-window>
         <strong>{{locatie.properties.Naam}}</strong>
         <br />

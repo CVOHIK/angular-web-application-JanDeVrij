@@ -34,7 +34,10 @@ export class ProfielComponent implements OnInit {
 
   voegToe(form){
     this.interesse = form.value.selectsport;
-    this.interesses.push(this.interesse);
+
+    if (!this.interesses.find(i => i === this.interesse)) {
+      this.interesses.push(this.interesse);
+    }
   }
 
 }
